@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import APIURL from '../../helpers/enviroment';
 import {Modal, Form, FormGroup, Label, Input, Button, ModalBody, ModalHeader} from 'reactstrap'
 
 const QuoteEdit= (props)=> {
@@ -12,7 +13,7 @@ const QuoteEdit= (props)=> {
 
         const quoteUpdate = (event, quotes) =>{
             event.preventDefault();
-            fetch(`http://localhost:3000/quotes/${props.testData.id}`,{
+            fetch(`${APIURL}/quotes/${props.testData.id}`,{
                 method:"PUT",
                 body: JSON.stringify({quote: editQuote, author: editAuthor}),
                 headers: new Headers({

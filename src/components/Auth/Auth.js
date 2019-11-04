@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import APIURL from '../../helpers/enviroment'
 import { Button, Form, Label, Input, FormGroup, Container, Col } from 'reactstrap';
 import './Auth.css';
 import styled from 'styled-components'
@@ -41,7 +42,7 @@ const signupFields = () => !login ?
 
 const handleSumbit = (e) => {
     e.preventDefault();
-    const url = login ? 'http://localhost:3000/auth/signin' : 'http://localhost:3000/auth/signup'
+    const url = login ? `${APIURL}/auth/signin` : `${APIURL}/auth/signup`
     const bodyObj = login ? {
         username: username,
         password: password 

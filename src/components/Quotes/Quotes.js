@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../Nav/Navbar';
+import APIURL from '../../helpers/enviroment';
 import Quotetable from './Quotetable';
 import CreateQotes from './CreateQotes';
 import QuoteEdit from './QuoteEdit';
@@ -63,7 +64,7 @@ const Quotes = (props)=>{
     }
     const fetchQuotes =()=>{
 
-        fetch('http://localhost:3000/quotes/',{
+        fetch(`${APIURL}/quotes/`,{
             method: 'GET',
             headers: new Headers( {
                 'Content-Type': 'application/json',

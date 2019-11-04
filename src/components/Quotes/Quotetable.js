@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
 import './Quotes.css'
+import APIURL from '../../helpers/enviroment';
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -41,7 +42,7 @@ const Quotetable = (props) => {
     
 
         const deleteQuote=()=>{
-            fetch(`http://localhost:3000/quotes/${props.testData.id}`, {
+            fetch(`${APIURL}/quotes/${props.testData.id}`, {
                 method: 'DELETE',
                 headers: new Headers({
                     'Content-Type': 'application/json',

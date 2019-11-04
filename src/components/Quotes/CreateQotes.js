@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import APIURL from '../../helpers/enviroment';
 import { Button} from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -39,7 +40,7 @@ const CreateQotes=(props)=>{
         e.preventDefault(); 
         // console.log(quote, author, owner)
         
-        fetch("http://localhost:3000/quotes", {
+        fetch(`${APIURL}/quotes`, {
             method: "POST",
             body: JSON.stringify({quote: quote, author: author}),
             headers: new Headers({

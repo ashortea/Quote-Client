@@ -13,6 +13,7 @@ padding-bottom: 2em;
 align-items: center;
 justify-content: center;
 text-align: center;
+marginLeft 2em;
 `;
 
 const Auth = (props) => {

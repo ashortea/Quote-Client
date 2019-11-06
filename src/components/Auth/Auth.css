@@ -1,20 +1,16 @@
 
 .input{
     border:none;
-    border-radius: 5px;
     background-color: whitesmoke;
-    height: 40px;
-    width: 300px;
-    text-indent: 5px;
-    margin-bottom: 1em;
-    margin-top: 1em;
     font-size: 18px; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 5px;
 }
 .input:focus{
     outline: none;
     background-color: lightslategrey;
     color: white;
+    border:none;
 }
 
 .button{

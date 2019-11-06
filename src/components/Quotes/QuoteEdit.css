@@ -1,0 +1,10 @@
+.button{
+    margin-left: 5px;
+    color:white;
+    background-color: cadetblue;
+}
+
+.button:hover{
+    color:lightslategray;
+    background-color: pink;
+}

@@ -2,13 +2,14 @@
 .input{
     border:none;
     border-radius: 5px;
-    background-color: green;
+    background-color: whitesmoke;
     height: 40px;
     width: 300px;
     text-indent: 5px;
     margin-bottom: 1em;
     margin-top: 1em;
     font-size: 18px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;;
 }
 .input:focus{
     outline: none;
@@ -24,15 +25,27 @@
     background-color: lightskyblue;
     color: white;
     cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .button:focus{
-    outline-color: red;
+    outline-color: whitesmoke;
 }
 .form{
     background-color: cadetblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: linear-gradient(rgba(167, 196, 197, 0.87), white), url(../../assets/dd.jpg);
+    border: turquoise;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    border-radius: 25px;
+    background-size: contain;
 }
 .welcome{
     margin-top: 3em;
-    color: cadetblue;
+    color: rgb(26, 236, 243);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: oblique;
+    
 }

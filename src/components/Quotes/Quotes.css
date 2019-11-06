@@ -1,6 +1,25 @@
-.quotes{
-    color:white;
-}
+
 .container{
-    color:white;
+    color:black;
+}
+.jumbo{
+    background-image:linear-gradient(rgba(167, 196, 197, 0.87), white), url(../../assets/dd.jpg) ;
+    color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-color:cadetblue;
+
+}
+    
+   
+.lead{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-style: oblique;
+}
+.display-3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+font-style: oblique;
+background-clip: border-box;
+
 }

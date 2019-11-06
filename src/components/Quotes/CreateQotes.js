@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import APIURL from '../../helpers/enviroment';
-import { Button} from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { pink } from '@material-ui/core/colors';
-import PublishIcon from '@material-ui/icons/Publish';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,11 +16,13 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     width: 200,
   },
-  icon:{
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200,
-    height: 200,
+  button:{
+    margin: theme.spacing(2),
+    color: 'pink',
+    borderRadius: 25,
+    border: 0,
+    width: 60,
+    height: 60,
     '&:hover': {
       color: pink[800],
   }
@@ -34,18 +35,18 @@ const CreateQotes=(props)=>{
 
     const [quote, setQuote]= useState('');
     const [author, setAuthor]= useState('');
-    const [owner, setOwner]= useState(''); 
+   
 
     const handleSumbit =(e)=>{
         e.preventDefault(); 
-        // console.log(quote, author, owner)
+        console.log(quote, author)
         
         fetch(`${APIURL}/quotes`, {
             method: "POST",
             body: JSON.stringify({quote: quote, author: author}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.setSession
+                'Authorization': props.token
             })
             
         })
@@ -55,7 +56,6 @@ const CreateQotes=(props)=>{
             console.log(quoteData);
             setQuote('');
             setAuthor('');
-            setOwner('');
             props.fetchQuotes();
             
         })
@@ -64,7 +64,7 @@ const CreateQotes=(props)=>{
  
     return(
       
-       <form onSubmit={handleSumbit} className={classes.container} noValidate autoComplete="off">
+       <form onSubmit={handleSumbit} className={classes.container}>
            <div>
         <TextField
           id="standard-basic"
@@ -82,18 +82,12 @@ const CreateQotes=(props)=>{
           margin="normal"
           value={author} onChange={(e)=> setAuthor(e.target.value)}
         />
+        
       </div>
-      <div>
-        <TextField
-          id="standard-basic"
-          className={classes.textField}
-          label="Owner"
-          margin="normal"
-          value={owner} onChange={(e)=> setOwner(e.target.value)}
-        />
+      <div className={classes.root}> 
+      <AddBoxIcon border={0}  className={classes.button} type="submit" onClick={handleSumbit}/>
+    
       </div>
-     
-          <PublishIcon  color="primary" margin="normal" clasName={classes.icon} type="submit"  id="standard-basic" style={{ fontSize: 30 }}/>
        </form>
       
     )

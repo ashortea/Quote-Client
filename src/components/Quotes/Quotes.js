@@ -5,18 +5,18 @@ import Quotetable from './Quotetable';
 import CreateQotes from './CreateQotes';
 import QuoteEdit from './QuoteEdit';
 import './Quotes.css';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Jumbotron} from 'reactstrap';
+
 
 const Quotes = (props)=>{
     const [quotes, setQuotes]= useState([]);
     const [updateQuote, setUpdateQuote]= useState(false);
     const [quoteToUpdate, setQuoteToUpdate]= useState({});
-    const [create, setcreate]= useState(false)
-    console.log(props.token)
+    
 
-    const editUpdateQuote=(quoteInfo)=>{
+    const editUpdateQuote=(quoteInfo) =>{
         setQuoteToUpdate(quoteInfo);
-        // console.log(quoteInfo)
+        console.log(quoteInfo)
     }
     const updateOn=()=>{
         setUpdateQuote(true);
@@ -28,34 +28,22 @@ const Quotes = (props)=>{
 
     const quoteRow= ()=>{
     const quoteColums ={
-        quote: 'Quote',
-        author: "Author"
+        quote: 'I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.',
+        author: "Maya Angelou"
         
     }
     
-    return [<Quotetable key={'column names'} editUpdateQuote={editUpdateQuote} updateOn={updateOn} testData={quoteColums} setSession={props.setSession} quotes={quotes}/>].concat(
+    return [<Quotetable key={'column names'}  editUpdateQuote={editUpdateQuote} token ={props.token} updateOn={updateOn} testData={quoteColums} setSession={props.setSession} quotes={quotes}/>].concat(
         quotes.map((quoteInfo, index) => {
             // console.log(quoteInfo)
            
-            return <Quotetable key={index} testData={quoteInfo} setSession={props.setSession}  fetchQuotes={fetchQuotes} editUpdateQuote={editUpdateQuote} updateOn={updateOn} quotes={quotes}/>
+            return <Quotetable key={index}  testData={quoteInfo} token ={props.token} setSession={props.setSession}  fetchQuotes={fetchQuotes} editUpdateQuote={editUpdateQuote} updateOn={updateOn} quotes={quotes}/>
         }))
     }
 
     const edit =()=>{
-        const quoteColums ={
-        id:0 ,
-        quote: 'Quote',
-        author: "Author",
-        owner: 0
-        
-    }
 
-        return [<QuoteEdit key={'edit'} quoteToUpdate={quoteToUpdate} testData={quoteColums} updateOff={updateOff} setSession={props.setSession} fetchQuotes={fetchQuotes}/>].concat(
-            quotes.map((quoteInfo, index) => {
-                // console.log(quoteInfo)
-            return <QuoteEdit  key = {index} testData= {quoteInfo} quoteToUpdate={quoteToUpdate} updateOff={updateOff} setSession={props.setSession} fetchQuotes={fetchQuotes}/>
-            }
-        ))
+        return <QuoteEdit  quoteToUpdate={quoteToUpdate} token ={props.token} updateOff={updateOff} setSession={props.setSession} fetchQuotes={fetchQuotes}/>
 
     }
 
@@ -66,10 +54,10 @@ const Quotes = (props)=>{
 
         fetch(`${APIURL}/quotes/`,{
             method: 'GET',
-            headers: new Headers( {
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': props.token
-            })
+            }
         })
         .then (res => res.json())
         .then(json => setQuotes(json))
@@ -86,10 +74,19 @@ const Quotes = (props)=>{
 
     return (
         <div className="quotes">
+            <Navbar className="nav" token ={props.token} setSession={props.setSession} fetchQuotes={fetchQuotes}/>
+             <Jumbotron className="jumbo">
+        <h1 className="display-3">Cat-Box Quotes</h1>
+        <p className="lead">This is a simple way to share and store your quotes. Want to be notable, make a book, or make a inspirational poster. Your in the right place </p>
+        <hr className="my-2" />
+        <p>"Dream big, think big, be big."- Asia Shorter</p>
+        
+      </Jumbotron>
             <Container>
-            <Navbar token ={props.token} setSession={props.setSession} fetchQuotes={fetchQuotes}/>
                
             <CreateQotes fetchQuotes={fetchQuotes} token={props.token} />
+            <br/>
+            <br/>
                    
             {quoteRow()}
             

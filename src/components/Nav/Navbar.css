@@ -1,0 +1,10 @@
+.cat{
+    border-radius: 50%;
+    padding: 5px;
+  width: 50px;
+  color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+  background-color:cadetblue;
+}

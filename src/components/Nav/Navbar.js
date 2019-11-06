@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
-import{
-  Router,
-  Route,
-  Link,
-  Switch
-} from 'react-router-dom' 
+import Cat from '../../assets/paw.jpg'
+import './Navbar.css'
 import {
     Collapse,
     Navbar,
@@ -12,13 +8,10 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+
+    } from 'reactstrap';
 import Logout from './Logout'; 
-// import CreateQotes from '../Quotes/CreateQotes'
+
 
 
 const NavBar = (props) => {
@@ -29,30 +22,15 @@ const NavBar = (props) => {
     return (
       <div>
 
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Cat-Box Quotes</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+        <Navbar >
+         <img src={Cat} className="cat"/>
             <Nav className="ml-auto" navbar>
               <NavItem>
-               
+               <Logout setSession={props.setSession}/>
               </NavItem>
-              <NavItem>
-               
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                  <Logout setSession={props.setSession}/>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              
             </Nav>
-          </Collapse>
+       
         </Navbar>
         
       </div>

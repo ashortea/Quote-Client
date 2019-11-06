@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Logout.css'
 // import logoutPic from '../assets/power.jpg';
 
 

@@ -3,11 +3,10 @@
 width: 100%;
 flex-wrap: wrap;
 height: 100%;
-  text-align: center;
  background-color: lightslategray;
  align-items: center;
 justify-content: center;
-color: white;
+
  
 }
   

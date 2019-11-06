@@ -1,0 +1,19 @@
+.logout{
+    color: black;
+    background-color: pink;
+    padding: 15px 25px;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    color: lightslategray;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-style: oblique;
+    border-radius: 25px;
+
+}
+.logout:hover{
+    color: black;
+    background-color: rgba(168, 32, 89, 0.87);
+}

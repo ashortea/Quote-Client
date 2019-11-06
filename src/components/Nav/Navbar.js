@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
-import Cat from '../../assets/paw.jpg'
+import Cat from '../../assets/paw.png'
 import './Navbar.css'
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
 

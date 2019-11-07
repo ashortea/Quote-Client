@@ -4,6 +4,7 @@ import Quotes from './components/Quotes/Quotes';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function App() {
   const [ sessionToken, setSessionToken] = useState(undefined); 
 
@@ -29,6 +30,7 @@ function App() {
   
   return (
     <div className="App">
+    
       {viewConductor()}
     </div>
   );

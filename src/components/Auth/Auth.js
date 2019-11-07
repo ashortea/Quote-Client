@@ -70,13 +70,12 @@ const handleSumbit = (e) => {
 
   return(
       <Container>
-          <Row>
-            <img src={Paw} className="paw"/>
-          <h2 className= "welcome"> Welcome to Cat-Box Quotes </h2>
-          </Row>
+        
           <Row>
     <Form onSubmit= {handleSumbit} className="form" >
-        <h1>{title()}</h1>
+            <img src={Paw} className="paw"/>
+          <h2 className= "welcome"> Welcome to Cat-Box Quotes </h2>
+        <h1 className="title">{title()}</h1>
         {signupFields()}
         <Col>
         <FormGroup>

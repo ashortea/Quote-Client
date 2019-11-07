@@ -3,6 +3,7 @@ import APIURL from '../../helpers/enviroment'
 import { Button, Form, Label, Input, FormGroup, Container, Col } from 'reactstrap';
 import './Auth.css';
 import styled from 'styled-components'
+import Paw from '../../assets/paw.png'
 
 const Row = styled.div`
 display: flex;
@@ -21,6 +22,7 @@ const Auth = (props) => {
 const [username, setUsername]= useState('');
 const [password, setPassword]= useState ('');
 const [login, setLogin] = useState(true);
+const [errorPassword, setErrorPassword] = useState('Password must have atleast 5 characters')
 
 const title = ()=>{
     return login ? 'Login' : 'Signup';
@@ -43,6 +45,7 @@ const signupFields = () => !login ?
 
 const handleSumbit = (e) => {
     e.preventDefault();
+    setErrorPassword('');
     const url = login ? `${APIURL}/auth/signin` : `${APIURL}/auth/signup`
     const bodyObj = login ? {
         username: username,
@@ -68,6 +71,7 @@ const handleSumbit = (e) => {
   return(
       <Container>
           <Row>
+            <img src={Paw} className="paw"/>
           <h2 className= "welcome"> Welcome to Cat-Box Quotes </h2>
           </Row>
           <Row>
@@ -77,14 +81,16 @@ const handleSumbit = (e) => {
         <Col>
         <FormGroup>
         <Label htmlFor='username'>Username:</Label>
-        <Input className="input" type='text' id = 'username' placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <Input className="input" type='text' id = 'username' placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)} required/>
         </FormGroup>
         </Col>
         <Col>
         <FormGroup>
         <Label htmlFor='password'>Password:</Label>
-        <Input className="input" type='password' id='password' placeholder='Enter Password' value={password} onChange={(e)=> setPassword(e.target.value)}/>
+        <Input className="input" type='password' id='password' placeholder='Enter Password' value={password} onChange={(e)=> setPassword(e.target.value)} required/>
+        {/* <div style={{fontSize: 12, color: "red"}}>{errorPassword}</div> */}
         </FormGroup>
+
         </Col>
         <Button className="button" onClick={logginToggle}>Login/Signup</Button>
         <Button className="button" type='submit'>Submit</Button>

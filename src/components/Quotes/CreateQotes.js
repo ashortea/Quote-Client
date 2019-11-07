@@ -51,14 +51,14 @@ const CreateQotes=(props)=>{
             
         })
         .then(res => res.json())
-        .catch(err => console.log(err))
         .then((quoteData)=>{
-            console.log(quoteData);
-            setQuote('');
-            setAuthor('');
-            props.fetchQuotes();
-            
+          console.log(quoteData);
+          setQuote('');
+          setAuthor('');
+          props.fetchQuotes();
+          
         })
+        .catch(err => console.log(err))
     }
 
  

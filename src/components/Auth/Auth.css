@@ -46,3 +46,11 @@
     font-style: oblique;
     
 }
+.paw{
+    border-radius: 0%;
+  width: 80px;
+  color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+}

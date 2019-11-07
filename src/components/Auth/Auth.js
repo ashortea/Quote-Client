@@ -63,7 +63,7 @@ const handleSumbit = (e) => {
         }
     })
     .then(res => res.json())
-    .then(json => props.setSession(json.sessionToken))
+    .then(json => props.updateToken(json.sessionToken))
     .catch(err => console.log(err))
 }
 
@@ -80,14 +80,14 @@ const handleSumbit = (e) => {
         {signupFields()}
         <Col>
         <FormGroup>
-        <Label htmlFor='username'>Username:</Label>
-        <Input className="input" type='text' id = 'username' placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)} required/>
+        <Label htmlFor='username'>Email:</Label>
+        <Input className="input" type='email' id = 'email' placeholder='Enter email' value={username} onChange={(e) => setUsername(e.target.value)} required/>
         </FormGroup>
         </Col>
         <Col>
         <FormGroup>
         <Label htmlFor='password'>Password:</Label>
-        <Input className="input" type='password' id='password' placeholder='Enter Password' value={password} onChange={(e)=> setPassword(e.target.value)} required/>
+        <Input className="input" type='password' id='password' pattern="(?=.*[a-z].{6-12})" placeholder='at least 6 characters' value={password} onChange={(e)=> setPassword(e.target.value)} required/>
         {/* <div style={{fontSize: 12, color: "red"}}>{errorPassword}</div> */}
         </FormGroup>
 

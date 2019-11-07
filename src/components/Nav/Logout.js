@@ -6,7 +6,7 @@ import './Logout.css'
 const Logout = (props) => {
     return( 
         <div>
-            <button  onClick={()=> props.setSession(undefined)} id="logout" className="logout">Logout</button>
+            <button  onClick={()=> props.setSession(undefined), props.clearToken} id="logout" className="logout">Logout</button>
         </div>
     )
 }

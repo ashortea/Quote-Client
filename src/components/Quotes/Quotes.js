@@ -74,7 +74,7 @@ const Quotes = (props)=>{
 
     return (
         <div className="quotes">
-            <Navbar className="nav" token ={props.token} setSession={props.setSession} fetchQuotes={fetchQuotes}/>
+            <Navbar className="nav" token ={props.token} setSession={props.setSession} fetchQuotes={fetchQuotes} clearToken={props.clearToken}/>
              <Jumbotron className="jumbo">
         <h1 className="display-3">Cat-Box Quotes</h1>
         <p className="lead">This is a simple way to share and store your quotes. Want to be notable, make a book, or make a inspirational poster. Your in the right place </p>

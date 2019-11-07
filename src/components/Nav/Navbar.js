@@ -23,7 +23,7 @@ const NavBar = (props) => {
          <img src={Cat} className="cat"/>
             <Nav className="ml-auto" navbar>
               <NavItem>
-               <Logout setSession={props.setSession}/>
+                <Logout setSession={props.setSession} clearToken={props.clearToken}/>
               </NavItem>
               
             </Nav>

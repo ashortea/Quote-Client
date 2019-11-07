@@ -51,7 +51,7 @@ const CreateQotes=(props)=>{
             
         })
         .then(res => res.json())
-        .then((quoteData)=>{
+        .then(quoteData =>{
           console.log(quoteData);
           setQuote('');
           setAuthor('');
